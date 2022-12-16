@@ -15,7 +15,7 @@ def splitset(dataset, parts):
     return result
 
 
-def split(out_dir='data', n_splits=2):
+def split(out_dir='data', n_splits=6):
     # Make dir
     os.makedirs(f'{out_dir}/clients', exist_ok=True)
 

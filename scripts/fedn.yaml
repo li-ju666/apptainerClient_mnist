@@ -1,5 +1,0 @@
-entry_points:
-  train:
-    command: python3 /entrypoint train $ENTRYPOINT_OPTS
-  validate:
-    command: python3 /entrypoint validate $ENTRYPOINT_OPTS

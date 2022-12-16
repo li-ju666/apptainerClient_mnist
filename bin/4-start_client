@@ -5,10 +5,10 @@ fi
 
 cat /etc/hosts config/extra_hosts > config/hosts
 
-for idx in {1..2}
+for idx in {1..6}
 do
    # apptainer exec --bind ./data/clients/$idx:/data --bind config/hosts:/etc/hosts client.sif fedn run client -in /app/config/settings-client.yaml --local-package
 
-   nohup apptainer run --bind ./data/clients/$idx:/data --bind config/hosts:/etc/hosts client.sif > client$idx.log &
+   apptainer instance start --bind ./data/clients/$idx:/data --bind config/hosts:/etc/hosts client.sif client_$idx &
    sleep 5
 done
