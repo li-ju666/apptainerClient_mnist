@@ -1,0 +1,6 @@
+if test ! -f "./client.def";
+then
+   pushd ../ 
+fi
+
+apptainer build client.sif client.def

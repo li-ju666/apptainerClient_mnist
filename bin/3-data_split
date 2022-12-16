@@ -1,0 +1,6 @@
+if test ! -f "./client.def";
+then
+   pushd ../
+fi
+
+apptainer exec client.sif python3 bin/data_split.py

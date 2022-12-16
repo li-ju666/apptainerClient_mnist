@@ -1,0 +1,12 @@
+if test ! -f "./client.def";
+then
+   pushd ../
+fi
+
+cat /etc/hosts config/extra_hosts > config/hosts
+
+# apptainer run --bind /home/li/data/fluo_data:/data --bind config/hosts:/etc/hosts client.sif
+for idx in {1..2}:
+do
+   apptainer exec --bind ./data/client/$idx:/data --bind config/hosts:/etc/hosts client.sif "fedn run client -in /app/config/settings-client.yaml --local-package"
+done
