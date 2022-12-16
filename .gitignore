@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# apptainer images
+*.sif
+
+# tmp generated data
+data
+config/hosts
+package.tgz
+seed.npz

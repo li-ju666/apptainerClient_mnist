@@ -17,14 +17,15 @@ def splitset(dataset, parts):
 
 def split(out_dir='data', n_splits=2):
     # Make dir
-    if not os.path.exists(f'{out_dir}/clients'):
-        os.mkdir(f'{out_dir}/clients')
+    os.makedirs(f'{out_dir}/clients', exist_ok=True)
 
     # Load and convert to dict
     train_data = torchvision.datasets.MNIST(
-        root=f'{out_dir}/train', transform=torchvision.transforms.ToTensor, train=True)
+        root=f'{out_dir}/train', transform=torchvision.transforms.ToTensor,
+        train=True, download=True)
     test_data = torchvision.datasets.MNIST(
-        root=f'{out_dir}/test', transform=torchvision.transforms.ToTensor, train=False)
+        root=f'{out_dir}/test', transform=torchvision.transforms.ToTensor,
+        train=False, download=True)
     data = {
         'x_train': splitset(train_data.data, n_splits),
         'y_train': splitset(train_data.targets, n_splits),
