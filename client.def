@@ -8,7 +8,7 @@ From: python:3.9-slim
   apt-get update && apt-get install -y subversion
   mkdir -p /app/client /app/certs /app/client/package /app/certs /app/config
   mkdir /data
-  # git clone -b feature/429 https://github.com/scaleoutsystems/fedn.git /fedn
+  # git clone -b develop https://github.com/scaleoutsystems/fedn.git /fedn
   svn checkout -q https://github.com/scaleoutsystems/fedn/branches/develop/fedn /app/fedn
   # mv /fedn/fedn /app/fedn && rm -r /fedn
   pip install --upgrade pip && pip install --no-cache-dir -e /app/fedn

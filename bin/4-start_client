@@ -5,9 +5,10 @@ fi
 
 cat /etc/hosts config/extra_hosts > config/hosts
 
-# apptainer run --bind /home/li/data/fluo_data:/data --bind config/hosts:/etc/hosts client.sif
-for idx in {1..2}:
+for idx in {1..2}
 do
-   apptainer exec --bind ./data/clients/$idx:/data --bind config/hosts:/etc/hosts client.sif fedn run client -in /app/config/settings-client.yaml --local-package
-   # apptainer exec client.sif echo "hello?"
+   # apptainer exec --bind ./data/clients/$idx:/data --bind config/hosts:/etc/hosts client.sif fedn run client -in /app/config/settings-client.yaml --local-package
+
+   nohup apptainer run --bind ./data/clients/$idx:/data --bind config/hosts:/etc/hosts client.sif > client$idx.log &
+   sleep 5
 done

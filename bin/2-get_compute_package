@@ -3,5 +3,5 @@ then
    pushd ../
 fi
 
-apptainer exec client.sif python3 scripts/entrypoint init_seed ./scripts/seed.npz
-tar -czvf package.tgz scripts
+apptainer exec client.sif python3 client/entrypoint init_seed seed.npz
+tar -czvf package.tgz client
